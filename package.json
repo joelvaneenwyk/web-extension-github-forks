@@ -4,31 +4,33 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "Browser extension (Chrome/Firefox/Edge) for enhancing GitHub with Active Forks buttons",
-  "main": "src/activeforks.js",
+  "main": "src/active-forks.js",
   "scripts": {
-    "build": "yarn clean && npx tsc && yarn webpack",
+    "build": "yarn clean && yarn tsc && yarn build:webpack",
     "build:safari": " xcrun safari-web-extension-converter . --app-name ActiveForks --bundle-identifier io.ridvanaltun.ActiveForks",
+    "build:webpack": "yarn webpack build --progress --color",
+    "build:watch": "yarn webpack --watch",
     "package": "yarn clean:package && zip -rD --exclude='src/*.ts' active-forks.xpi dist/bundles icons src manifest.json",
     "clean": "rimraf dist && yarn clean:package",
     "clean:package": "rimraf active-forks.xpi",
-    "webpack": "webpack",
-    "watch": "webpack -w"
+    "generate": "yarn clean && yarn build && yarn package"
   },
   "dependencies": {
-    "@types/events": "^3.0.0",
-    "dom-loaded": "^2.0.0",
-    "github-injection": "^1.0.1",
-    "select-dom": "^5.1.0",
-    "webextension-polyfill": "^0.5.0"
+    "@types/events": "^3.0.3",
+    "dom-loaded": "^3.0.0",
+    "github-injection": "^1.1.0",
+    "select-dom": "^9.0.0",
+    "typescript": "^5.3.3",
+    "webextension-polyfill": "^0.10.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^5.0.5",
-    "css-loader": "^3.2.0",
-    "rimraf": "^3.0.2",
-    "source-map-loader": "^1.1.1",
-    "style-loader": "^1.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "rimraf": "^5.0.5",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.3",
     "webextension-polyfill-ts": "^0.11.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
