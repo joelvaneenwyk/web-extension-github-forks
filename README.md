@@ -16,23 +16,23 @@ It supports Chrome, Firefox and Edge.
 
 ### Chrome & Firefox
 
-```
+```bash
 yarn install && yarn build && yarn package
 ```
 
 ### Safari
 
-#### ⚠️ A machine running macOS and [Xcode 12+](https://developer.apple.com/xcode/) installed is required!
+#### ⚠️ A machine running macOS and [Xcode 12+](https://developer.apple.com/xcode/) installed is required
 
 First, run the following to install dependencies and build the web extension:
 
-```
+```bash
 yarn install && yarn build && yarn package
 ```
 
 Then run the `build:safari` command to build the Safari extension around the web extension:
 
-```
+```bash
 yarn build:safari
 ```
 
@@ -43,12 +43,13 @@ Hit `enter` when presented with this screen.
 ## Test
 
 [Build](#build) the extension and
+
 * unzip `active-forks.xpi` and load it as [“unpackaged extension” (Chrome)](https://developer.chrome.com/extensions/getstarted) or
 * load `active-forks.xpi` as [“temporary add-on” (Firefox)](https://blog.mozilla.org/addons/2015/12/23/loading-temporary-add-ons/) or
 * open `ActiveForks/ActiveForks.xcodeproj` and run the project with `cmd` + `r`. ⚠️ _Safari must have [**Allow Unsigned Extensions**](https://developer.apple.com/documentation/safariservices/safari_app_extensions/building_a_safari_app_extension) enabled._
 
 The extension is active until the next restart of your browser.
 
-# Disclaimer
+## Disclaimer
 
 This project and even documentation is clone of [Gitpod Browser](https://github.com/gitpod-io/browser-extension) extension. All code rebranded to use web extension markets properly.
