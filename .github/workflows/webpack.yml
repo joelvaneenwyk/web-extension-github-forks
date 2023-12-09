@@ -2,9 +2,9 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main", "develop"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main", "develop"]
 
 jobs:
   build:
@@ -12,22 +12,25 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x, 18.x, 20.x, 21.x]
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Run install
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: install # will run `yarn install` command
+      - run: yarn install
+      - run: yarn build
 
-    - name: Build production bundle
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: build # will run `yarn build` command
+      # - name: Run install
+      #   uses: borales/actions-yarn@v4
+      #   with:
+      #     cmd: install # will run `yarn install` command
+      #
+      # - name: Build production bundle
+      #   uses: borales/actions-yarn@v4
+      #   with:
+      #     cmd: build # will run `yarn build` command
