@@ -1,4 +1,4 @@
-import * as domloaded from "dom-loaded";
+import * as domLoaded from "dom-loaded";
 
 import "../css/active-forks.css";
 import { ConfigProvider } from "./config";
@@ -49,7 +49,7 @@ const init = async (injectedByUserClick: boolean = false) => {
 
   // Perform the actual, initial injection
   await injector.inject();
-  await domloaded;
+  await domLoaded;
 
   // Observe and update on DOM changes
   updateOnDOMChanges(injector);

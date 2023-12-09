@@ -3,12 +3,12 @@ import { ConfigProvider } from "./config";
 
 async function activeforksCurrentTab() {
   try {
-    // add a dummy div element to indicate that activeforks.bundle.js was injected by a user click on the active forks icon
+    // add a dummy div element to indicate that active-forks.bundle.js was injected by a user click on the active forks icon
     browser.tabs.executeScript({
       code:
         'document.body.innerHTML += \'<div style="display: none;" id="active-forks-extension-icon-clicked"></div>\'',
     });
-    browser.tabs.executeScript({ file: "/dist/bundles/activeforks.bundle.js" });
+    browser.tabs.executeScript({ file: "/dist/bundles/active-forks.bundle.js" });
   } catch {
     try {
       const configProvider = await ConfigProvider.create();

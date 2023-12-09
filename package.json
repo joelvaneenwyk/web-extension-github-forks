@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "Browser extension (Chrome/Firefox/Edge) for enhancing GitHub with Active Forks buttons",
-  "main": "src/activeforks.js",
+  "main": "src/active-forks.js",
   "scripts": {
     "build": "yarn clean && yarn tsc && yarn build:webpack",
     "build:safari": " xcrun safari-web-extension-converter . --app-name ActiveForks --bundle-identifier io.ridvanaltun.ActiveForks",
